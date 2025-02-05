@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="title">Registration</div>
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <div class="flash">
+              {% for message in messages %}
+                <p>{{ message }}</p>
+              {% endfor %}
+            </div>
+          {% endif %}
+        {% endwith %}
+        <div class="content">
+            <form action="/register" method="POST">
+                <div class="user-details">
+                    <div class="input-box">
+                        <span class="details">Full Name:</span>
+                        <input type="text" name="full_name" placeholder="Enter your name" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Username:</span>
+                        <input type="text" name="username" placeholder="Enter your username" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Email-id:</span>
+                        <input type="email" name="email" placeholder="Enter email-id" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Phone no:</span>
+                        <input type="text" name="phone" placeholder="Enter mobile no" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Password:</span>
+                        <input type="password" name="password" placeholder="Enter valid password" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Confirm Password:</span>
+                        <input type="password" name="confirm_password" placeholder="Confirm password" required>
+                    </div>
+                </div>
+                <div class="gender-details">
+                    <span class="gender-title">Gender</span>
+                    <div class="category">
+                        <label>
+                            <input type="radio" name="gender" value="Male">
+                            <span class="gender">Male</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="gender" value="Female">
+                            <span class="gender">Female</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="gender" value="Prefer not to say">
+                            <span class="gender">Prefer not to say</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="button">
+                    <input type="submit" value="Register">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
